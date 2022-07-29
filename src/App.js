@@ -1,8 +1,15 @@
+import { Box } from '@chakra-ui/react';
 import React from 'react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
 
 function App() {
-  return <ColorModeSwitcher justifySelf="flex-end" />;
+  return (
+    <Box>
+      <Navbar />
+      <Home />
+    </Box>
+  );
 }
 
 export default App;

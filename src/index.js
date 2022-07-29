@@ -5,17 +5,20 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
 import { ChakraProvider, theme } from '@chakra-ui/react';
+import { AstronomicalContextProvider } from './context/context';
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 
 root.render(
-  <ChakraProvider theme={theme}>
-    <StrictMode>
+  <AstronomicalContextProvider>
+    <ChakraProvider theme={theme}>
       <ColorModeScript />
-      <App />
-    </StrictMode>
-  </ChakraProvider>
+      <StrictMode>
+        <App />
+      </StrictMode>
+    </ChakraProvider>
+  </AstronomicalContextProvider>
 );
 
 // If you want your app to work offline and load faster, you can change
