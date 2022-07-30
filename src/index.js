@@ -6,18 +6,21 @@ import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
 import { ChakraProvider, theme } from '@chakra-ui/react';
 import { AstronomicalContextProvider } from './context/context';
+import { BrowserRouter } from 'react-router-dom';
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 
 root.render(
   <AstronomicalContextProvider>
-    <ChakraProvider theme={theme}>
-      <ColorModeScript />
-      <StrictMode>
-        <App />
-      </StrictMode>
-    </ChakraProvider>
+    <BrowserRouter>
+      <ChakraProvider theme={theme}>
+        <ColorModeScript />
+        <StrictMode>
+          <App />
+        </StrictMode>
+      </ChakraProvider>
+    </BrowserRouter>
   </AstronomicalContextProvider>
 );
 
