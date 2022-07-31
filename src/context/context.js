@@ -9,9 +9,7 @@ export const AstronomicalContextProvider = ({ children }) => {
   const [neo,setNeo] = useState();
   const date = new Date();
   const [month, day, year] = [date.getMonth(), date.getDate(), date.getFullYear()];
-  const currentDay= `${year}-${month}-${day}`
-  console.log(typeof(currentDay))
-
+  const currentDay= `${year}-0${month+1}-${day}`
   const ApodUrl =`https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_NASA_API_KEY}`
   const NeoUrl = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${currentDay}&end_date=${currentDay}&api_key=${process.env.REACT_APP_NASA_API_KEY}`
   
@@ -29,7 +27,7 @@ export const AstronomicalContextProvider = ({ children }) => {
         await axios.get(NeoUrl)
                     .then((res) => {
                       if(res.status === 200){
-                          setNeo(res.data.near_earth_objects['2022-06-30'])
+                          setNeo(res.data.near_earth_objects[currentDay])
                       }
                     })
                     .catch(err=> console.log(err))
@@ -37,7 +35,7 @@ export const AstronomicalContextProvider = ({ children }) => {
   }
 
   return (
-    <AstronomicalContext.Provider value={{ apod, GetApod , neo ,GetNeo }}>
+    <AstronomicalContext.Provider value={{ apod, GetApod , neo ,GetNeo,}}>
       {children}
     </AstronomicalContext.Provider>
   );

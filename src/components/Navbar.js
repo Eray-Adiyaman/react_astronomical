@@ -1,12 +1,14 @@
 import React from 'react';
-import { Menu, MenuButton, MenuList, MenuItem,Box, Flex , Text, Spacer } from '@chakra-ui/react';
+import { Menu, MenuButton, MenuList, MenuItem,Box, Flex , Text, Spacer} from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../ColorModeSwitcher.js';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
+  
   return (
     <Box bg="#A0AEC0" w="100%" borderRadius="sm">
         <Flex justifyContent="flex-end" alignItems="center">
-        <Text fontSize='2xl' marginLeft="10px" > Astronomical </Text>
+        <Link to="/"><Text fontSize='2xl' marginLeft="10px" > Astronomical </Text> </Link>
         <Spacer />
             <Menu isLazy>
             <MenuButton>Open menu</MenuButton>
