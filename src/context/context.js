@@ -1,5 +1,4 @@
 import { createContext, useState } from 'react';
-
 export const AstronomicalContext = createContext();
 const axios = require("axios").default
 
@@ -7,12 +6,12 @@ const axios = require("axios").default
 export const AstronomicalContextProvider = ({ children }) => {
   const [apod, setApod] = useState([]);
   const [neo,setNeo] = useState();
-  const date = new Date();
-  const [month, day, year] = [date.getMonth(), date.getDate(), date.getFullYear()];
-  const currentDay= `${year}-0${month+1}-${day}`
+  const currentDay = new Date().toJSON().slice(0,10).replace(/-/g,'-');
+  
   const ApodUrl =`https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_NASA_API_KEY}`
   const NeoUrl = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${currentDay}&end_date=${currentDay}&api_key=${process.env.REACT_APP_NASA_API_KEY}`
   
+
   const GetApod = async () => {
     await axios.get(ApodUrl)
           .then((res)=> {
