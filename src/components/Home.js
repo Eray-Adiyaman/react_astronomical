@@ -1,9 +1,8 @@
-import { Box, Flex, Image, Text } from '@chakra-ui/react';
+import { Box, Flex, Image } from '@chakra-ui/react';
 import React from 'react';
 import { useEffect } from 'react';
 import { useAstronomicalContext } from '../hooks/useAstronomicalContext';
 import { Link } from 'react-router-dom';
-import { FaExternalLinkAlt } from 'react-icons/fa';
 
 export default function Home() {
   const { apod, GetApod, neo, GetNeo } = useAstronomicalContext();
@@ -13,8 +12,8 @@ export default function Home() {
     GetNeo();
   }, []);
 
-  // console.log(apod);
-  // console.log(neo);
+   // console.log(apod);
+   // console.log(neo);
 
   return (
     <>

@@ -25,10 +25,8 @@ export default function Apod() {
     setTimeout(() => {
       setLoader(false)
     }, 1000);
-    console.log(Loader,"usef")
   })
 
-  console.log(Loader,"outside")
   return (
     <Box m={10}>
       {Loader ? <Circular /> : 
