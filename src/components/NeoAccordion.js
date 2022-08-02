@@ -16,7 +16,7 @@ export default function NeoAccordion({ neo }) {
         <h2>
           <AccordionButton>
             <Box flex="1" textAlign="left">
-              Near Earth Object Official Id: {neo.id} {neo.is_potentially_hazardous_asteroid ? "*" : ""}
+              Near Earth Object Name: {neo.name} {neo.is_potentially_hazardous_asteroid ? "*" : ""} 
             </Box>
             <AccordionIcon />
           </AccordionButton>
