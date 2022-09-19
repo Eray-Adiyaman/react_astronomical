@@ -55,32 +55,34 @@ export default function Home() {
           backgroundImage="url('/images/spac.gif')"
           bgRepeat="no-repeat"
         >
-          <Box ml="8em">
+          <Box>
             <Tooltip label="Id's with * on them are marked Potentially HAZARDOUS!">
-              <Text>
+              <Text textAlign="center" padding={5}>
                 Number of Near Earth Objects today: {neo && neo.length}
               </Text>
             </Tooltip>
           </Box>
           <Accordion>
             {neo &&
-              neo.map((neo, idx) => (
+              neo.slice(0,neo.length > 5 ? 5 : neo.length).map((neo, idx) => (
                 <NeoAccordion neo={neo} idx={idx} key={idx} />
               ))}
           </Accordion>
 
           <Link to="/neo">
             <Flex direction="column">
-              <Button> See More Information Here &#x2197; </Button>
+              <Button borderRadius="none" > See More Information And Full List Here &#x2197; </Button>
             </Flex>
           </Link>
         </Box>
         {/* NEO BOX END*/}
 
         {/* MARS IMAGES BOX START*/}
-        <Box boxSize="lg" bg="green" borderRadius={10}>
-          Curiosity Mars Photos
-        </Box>
+        <Link to="/gallery">
+          <Box boxSize="lg" bg="green" borderRadius={10}>
+            Curiosity Mars Photos
+          </Box>
+        </Link>
         {/* MARS IMAGES BOX END*/}
       </Flex>
     </>
