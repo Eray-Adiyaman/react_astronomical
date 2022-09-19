@@ -6,8 +6,6 @@ export default function NearEarthObjects() {
 
     const {neo} = useAstronomicalContext()
 
-    console.log(neo)
-
   return (
     <>
     <Box textAlign="center" marginTop={5}><Text>Asteroids Close to Earth Orbit Today</Text></Box>

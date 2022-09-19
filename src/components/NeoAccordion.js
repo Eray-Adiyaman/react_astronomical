@@ -8,7 +8,6 @@ import {
 } from '@chakra-ui/react';
 
 export default function NeoAccordion({ neo }) {
-  console.log(neo);
 
   return (
     <>
