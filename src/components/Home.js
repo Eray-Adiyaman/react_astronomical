@@ -27,16 +27,16 @@ export default function Home() {
 
   return (
     <>
-      <Box width="100%" height="50px" bg="red">
+      <Box width="100%" height="50px">
         {' '}
         LANDING PAGE
       </Box>
       <Flex justifyContent="space-between" m="50px">
         {/* APOD BOX START*/}
         <Link to="/apod">
-          <Box position="absolute" alignContent="center">
+          <Text position="absolute" width="512px" textAlign="center" marginTop="5px" >
             Astronomy Picture of the Day
-          </Box>
+          </Text>
           <Box borderRadius={10} boxSize="lg">
             {isImage ? <Image
               borderRadius={10}
@@ -88,8 +88,18 @@ export default function Home() {
 
         {/* MARS IMAGES BOX START*/}
         <Link to="/gallery">
+          <Text position="absolute" width="512px" textAlign="center" marginTop="5px" >
+             NASA Image Search
+          </Text>
           <Box boxSize="lg" bg="green" borderRadius={10}>
-            Curiosity Mars Photos
+            <Image
+              borderRadius={10}
+              src="./images/james_webb.jpg"
+              width="512px"
+              height="512px"
+              objectFit="cover"
+              alt="Astronomy Picture of the Day"
+            /> 
           </Box>
         </Link>
         {/* MARS IMAGES BOX END*/}

@@ -5,11 +5,12 @@ import Home from './components/Home';
 import Apod from './components/Apod';
 import NearEarthObjects from './components/NearEarthObjects';
 import ImageGallery from './components/ImageGallery';
+import { Box } from '@chakra-ui/react';
 
 function App() {
  
   return (
-      <>
+      <Box h='calc(100vh)' >
       <Navbar />
       <Routes>
         <Route path="/" exact element={<Home />} />
@@ -17,7 +18,7 @@ function App() {
         <Route path="/neo" exact element={<NearEarthObjects />} />
         <Route path="/gallery" exact element={<ImageGallery />} />
       </Routes>
-      </>
+      </Box>
     
   );
 }
