@@ -7,8 +7,10 @@ import {
   FormControl,
   FormLabel,
   Button,
-  Flex
+  Divider
 } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
+
 const axios = require('axios').default;
 
 export default function ImageGallery() {
@@ -49,6 +51,7 @@ export default function ImageGallery() {
         </FormControl>
       </form>
       </Box>
+      <Divider marginTop={5}/>
       <Grid
         padding={10}
         gridGap="5px"
@@ -58,6 +61,7 @@ export default function ImageGallery() {
       >
         {images && images.length > 0
           ? images.map((image, i) => (
+              <Link to="/">
               <Image
                 key={i}
                 gridColumn="span 1"
@@ -67,7 +71,9 @@ export default function ImageGallery() {
                 objectFit="cover"
                 src={`${image.links[0].href}`}
               />
-            ))
+              </Link>
+            )
+            )
           : 'NO IMAGES'}
       </Grid>
       </Box>

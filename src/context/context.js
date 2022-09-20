@@ -6,6 +6,8 @@ const axios = require("axios").default
 export const AstronomicalContextProvider = ({ children }) => {
   const [apod, setApod] = useState([]);
   const [neo,setNeo] = useState();
+  const [isImage,setIsImage] = useState(false);// For some reason somedays Astronomy "Picture" of the day is a video, So conditional rendering it is.
+
   const currentDay = new Date().toJSON().slice(0,10).replace(/-/g,'-');
   
   const ApodUrl =`https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_NASA_API_KEY}`
@@ -17,6 +19,9 @@ export const AstronomicalContextProvider = ({ children }) => {
           .then((res)=> {
             if(res.status === 200){
               setApod(res.data)
+              if(res.data.media_type === "image"){
+                setIsImage(true)
+              }
             }})
           .catch(err => console.log(err))
           
@@ -34,7 +39,7 @@ export const AstronomicalContextProvider = ({ children }) => {
   }
 
   return (
-    <AstronomicalContext.Provider value={{ apod, GetApod , neo ,GetNeo,}}>
+    <AstronomicalContext.Provider value={{ apod, GetApod , neo ,GetNeo,isImage}}>
       {children}
     </AstronomicalContext.Provider>
   );

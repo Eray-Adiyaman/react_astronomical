@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
 import NeoAccordion from './NeoAccordion';
 
 export default function Home() {
-  const { apod, GetApod, neo, GetNeo } = useAstronomicalContext();
+  const { apod, GetApod, neo, GetNeo ,isImage } = useAstronomicalContext();
 
   useEffect(() => {
     GetApod();
@@ -23,6 +23,7 @@ export default function Home() {
 
   // console.log(apod);
   // console.log(neo);
+
 
   return (
     <>
@@ -37,13 +38,21 @@ export default function Home() {
             Astronomy Picture of the Day
           </Box>
           <Box borderRadius={10} boxSize="lg">
-            <Image
+            {isImage ? <Image
               borderRadius={10}
               src={apod.hdurl}
               width="512px"
               height="512px"
+              objectFit="cover"
               alt="Astronomy Picture of the Day"
-            />
+            /> : <Image
+            borderRadius={10}
+            src="./images/james_webb.jpg"
+            width="512px"
+            height="512px"
+            objectFit="cover"
+            alt="Astronomy Picture of the Day"
+          /> }
           </Box>
         </Link>
         {/* APOD BOX END*/}
