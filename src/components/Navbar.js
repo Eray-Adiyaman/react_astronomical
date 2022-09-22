@@ -10,15 +10,20 @@ import {
   Spacer,
   Link,
 } from '@chakra-ui/react';
-import { ColorModeSwitcher } from '../ColorModeSwitcher.js';
+import { FaInfo } from 'react-icons/fa';
 import {  Link as RouterLink  } from 'react-router-dom';
 
 export default function Navbar() {
+
+  
+ 
+  
+  
   return (
     <Box bg="#A0AEC0" w="100%" borderRadius="sm">
-      <Flex justifyContent="flex-end" alignItems="center">
+      <Flex justifyContent="flex-end" alignItems="center" margin="auto 5px">
         <RouterLink to="/">
-          <Text fontSize="2xl" marginLeft="10px">
+          <Text fontSize="2xl" >
             Astronomical
           </Text>
         </RouterLink>
@@ -31,7 +36,7 @@ export default function Navbar() {
            </Link>
             <MenuItem>About</MenuItem>
           </MenuList>
-          <ColorModeSwitcher />
+          <FaInfo />
         </Menu>
       </Flex>
     </Box>
