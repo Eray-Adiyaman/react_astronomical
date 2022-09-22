@@ -11,6 +11,8 @@ import {
   ModalCloseButton,
   ModalBody,
   ModalFooter,
+  Link,
+  Spacer,
 } from '@chakra-ui/react';
 
 export default function SingleImage({ i, image }) {
@@ -19,6 +21,7 @@ export default function SingleImage({ i, image }) {
   return (
     <Box>
         <Image
+          
           key={i}
           gridColumn="span 1"
           gridRow="span 1"
@@ -29,11 +32,11 @@ export default function SingleImage({ i, image }) {
           src={`${image.links[0].href}`}
           title={`${image.data[0].title}`}
         />
-      <Button onClick={onOpen}>Trigger modal</Button>
-      <Modal onClose={onClose} isOpen={isOpen} isCentered size="xl" >
+      <Button _hover={{background:"gray"}} top="-40px"  onClick={onOpen}>Enlarge</Button>
+      <Modal  size="3xl" onClose={onClose} isOpen={isOpen} isCentered  >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader>{`${image.data[0].title}`}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Image
@@ -45,10 +48,11 @@ export default function SingleImage({ i, image }) {
               objectFit="cover"
               borderRadius={5}
               src={`${image.links[0].href}`}
-              title={`${image.data[0].title}`}
             />
           </ModalBody>
           <ModalFooter>
+            <Link isExternal href={`${image.links[0].href}`} >See Full Size </Link>
+            <Spacer />
             <Button onClick={onClose}>Close</Button>
           </ModalFooter>
         </ModalContent>
