@@ -28,7 +28,7 @@ const Feature = ({ title, desc, date, imgtitle, ...rest }) => {
 };
 
 export default function Apod() {
-  const { apod, isImage } = useAstronomicalContext();
+  const { apod, isImage,GetApod } = useAstronomicalContext();
   const [Loader, setLoader] = useState(true);
 
   const jamesWebbInfo = {
@@ -40,9 +40,11 @@ export default function Apod() {
   };
 
   useEffect(() => {
+    GetApod();
     setTimeout(() => {
       setLoader(false);
     }, 1000);
+    
   });
 
   return (
