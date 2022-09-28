@@ -2,30 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Box, Flex, Image, Text, Heading, Stack } from '@chakra-ui/react';
 import { useAstronomicalContext } from '../../hooks/useAstronomicalContext';
 import Circular from "../../tools/Circular";
-
-const Feature = ({ title, desc, date, imgtitle, ...rest }) => {
-  return (
-    <Box
-      marginRight={5}
-      p={4}
-      shadow="md"
-      borderWidth="1px"
-      {...rest}
-      borderRadius="5px"
-    >
-      <Flex justifyContent="space-between">
-        <Heading ml="100px" fontSize="xl">
-          {title}
-        </Heading>
-        <Heading fontSize="l">Date: {date}</Heading>
-      </Flex>
-      <Text mt={4} fontWeight={500} decoration="underline">
-        {imgtitle}
-      </Text>
-      <Text mt={4}>{desc}</Text>
-    </Box>
-  );
-};
+import Feature from '../../tools/Feature';
 
 export default function Apod() {
   const { apod, isImage,GetApod } = useAstronomicalContext();

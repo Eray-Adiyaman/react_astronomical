@@ -26,7 +26,11 @@ export const AstronomicalContextProvider = ({ children }) => {
     await axios.request(spaceNewsOptions)
                 .then((res) => {
                   if(res.status === 200){
-                    setNews(res.data)
+                    if(res.data.length > 20){
+                      setNews(res.data.slice(0,19))
+                    }else{
+                      setNews(res.data)
+                    }
                   }
                 })
                 .catch(err => console.log(err))

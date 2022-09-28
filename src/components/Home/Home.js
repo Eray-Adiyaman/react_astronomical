@@ -12,6 +12,8 @@ import { useEffect } from 'react';
 import { useAstronomicalContext } from '../../hooks/useAstronomicalContext';
 import { Link } from 'react-router-dom';
 import NeoAccordion from '../NearEarthObjects/NeoAccordion';
+import NewsPosts from '../NewsPosts/NewsPosts';
+import Circular from "../../tools/Circular"
 
 export default function Home() {
   const { apod, GetApod, neo, GetNeo ,isImage ,GetSpaceNews,news} = useAstronomicalContext();
@@ -28,10 +30,15 @@ export default function Home() {
 
   return (
     <>
-      <Box width="100%" height="50px">
-        {' '}
-        LANDING PAGE
-      </Box>
+      <Flex justifyContent="space-evenly" direction="row" width="100%" height="150px" marginTop="20px">
+        {news ? <NewsPosts /> :
+        <Box flexDirection="column">
+        <Text>Fetching Space Related News</Text>
+        <Circular size="50px" marginTop="50px" />
+        </Box> 
+        }  
+       
+      </Flex>
       <Flex justifyContent="space-between" m="50px">
         {/* APOD BOX START*/}
         <Link to="/apod">
