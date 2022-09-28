@@ -9,7 +9,7 @@ import {
   ListItem,
   Tooltip,
 } from '@chakra-ui/react';
-import { useAstronomicalContext } from '../hooks/useAstronomicalContext';
+import { useAstronomicalContext } from '../../hooks/useAstronomicalContext';
 
 export default function NearEarthObjects() {
   const { neo,GetNeo } = useAstronomicalContext();

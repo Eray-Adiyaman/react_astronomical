@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Flex, Image, Text, Heading, Stack } from '@chakra-ui/react';
-import { useAstronomicalContext } from '../hooks/useAstronomicalContext';
-import Circular from './Circular';
+import { useAstronomicalContext } from '../../hooks/useAstronomicalContext';
+import Circular from "../../tools/Circular";
 
 const Feature = ({ title, desc, date, imgtitle, ...rest }) => {
   return (

@@ -9,21 +9,22 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { useEffect } from 'react';
-import { useAstronomicalContext } from '../hooks/useAstronomicalContext';
+import { useAstronomicalContext } from '../../hooks/useAstronomicalContext';
 import { Link } from 'react-router-dom';
-import NeoAccordion from './NeoAccordion';
+import NeoAccordion from '../NearEarthObjects/NeoAccordion';
 
 export default function Home() {
-  const { apod, GetApod, neo, GetNeo ,isImage } = useAstronomicalContext();
+  const { apod, GetApod, neo, GetNeo ,isImage ,GetSpaceNews,news} = useAstronomicalContext();
 
   useEffect(() => {
     GetApod();
     GetNeo();
+    GetSpaceNews();
   }, []);
 
   // console.log(apod);
   // console.log(neo);
-
+  console.log(news)
 
   return (
     <>

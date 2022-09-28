@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route,Routes} from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import Apod from './components/Apod';
-import NearEarthObjects from './components/NearEarthObjects';
-import ImageGallery from './components/ImageGallery';
+import Navbar from './components/Nav/Navbar';
+import Home from './components/Home/Home';
+import Apod from './components/AstronomyPictureOfTheDay/Apod';
+import NearEarthObjects from './components/NearEarthObjects/NearEarthObjects';
+import ImageGallery from './components/ImageGallery/ImageGallery';
 import { Box } from '@chakra-ui/react';
 
 function App() {
