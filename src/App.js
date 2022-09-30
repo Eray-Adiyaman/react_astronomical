@@ -6,6 +6,7 @@ import Apod from './components/AstronomyPictureOfTheDay/Apod';
 import NearEarthObjects from './components/NearEarthObjects/NearEarthObjects';
 import ImageGallery from './components/ImageGallery/ImageGallery';
 import { Box } from '@chakra-ui/react';
+import About from './components/AboutPage/About';
 
 function App() {
  
@@ -17,6 +18,7 @@ function App() {
         <Route path="/apod" exact element={<Apod />} />
         <Route path="/neo" exact element={<NearEarthObjects />} />
         <Route path="/gallery" exact element={<ImageGallery />} />
+        <Route path="/about" exact element={<About />} />
       </Routes>
       </Box>
     

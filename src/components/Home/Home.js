@@ -6,14 +6,17 @@ import {
   Button,
   Tooltip,
   Text,
+  Link
 } from '@chakra-ui/react';
 import React from 'react';
 import { useEffect } from 'react';
 import { useAstronomicalContext } from '../../hooks/useAstronomicalContext';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import NeoAccordion from '../NearEarthObjects/NeoAccordion';
 import NewsPosts from '../NewsPosts/NewsPosts';
 import Circular from "../../tools/Circular"
+import { ExternalLinkIcon } from '@chakra-ui/icons'
+
 
 export default function Home() {
   const { apod, GetApod, neo, GetNeo ,isImage ,GetSpaceNews,news} = useAstronomicalContext();
@@ -21,7 +24,7 @@ export default function Home() {
   useEffect(() => {
     GetApod();
     GetNeo();
-    GetSpaceNews();
+    // GetSpaceNews();
   }, []);
 
   // console.log(apod);
@@ -41,7 +44,7 @@ export default function Home() {
       </Flex>
       <Flex justifyContent="space-between" m="50px">
         {/* APOD BOX START*/}
-        <Link to="/apod">
+        <RouterLink to="/apod">
           <Text position="absolute" width="512px" textAlign="center" marginTop="5px" >
             Astronomy Picture of the Day
           </Text>
@@ -62,7 +65,7 @@ export default function Home() {
             alt="Astronomy Picture of the Day"
           /> }
           </Box>
-        </Link>
+        </RouterLink>
         {/* APOD BOX END*/}
 
         {/* NEO BOX START*/}
@@ -86,16 +89,16 @@ export default function Home() {
               ))}
           </Accordion>
 
-          <Link to="/neo">
+          <RouterLink to="/neo">
             <Flex direction="column">
-              <Button borderRadius="none" > See More Information And Full List Here &#x2197; </Button>
+              <Button borderRadius="none" > See More Information And Full List Here-<ExternalLinkIcon /> </Button>
             </Flex>
-          </Link>
+          </RouterLink>
         </Box>
         {/* NEO BOX END*/}
 
         {/* MARS IMAGES BOX START*/}
-        <Link to="/gallery">
+        <RouterLink to="/gallery">
           <Text position="absolute" width="512px" textAlign="center" marginTop="5px" >
              NASA Image Search
           </Text>
@@ -109,9 +112,21 @@ export default function Home() {
               alt="Astronomy Picture of the Day"
             /> 
           </Box>
-        </Link>
+        </RouterLink>
         {/* MARS IMAGES BOX END*/}
       </Flex>
+      <Box position="fixed" bottom="5" right="5" w="120px" margin="0 auto" >
+        <Link isExternal href="https://github.com/Eray-Adiyaman/react_astronomical">
+          <Image marginLeft="35px" w="30%" src="./images/github_icon.png" />
+          <Text marginTop="4px">Git Repository</Text>
+          <Text>Eray ADIYAMAN</Text>
+        </Link>
+      </Box>
+      <Box position="fixed" bottom="5" left="5">
+      <RouterLink to="/about">
+        About Page
+      </RouterLink>
+      </Box>
     </>
   );
 }

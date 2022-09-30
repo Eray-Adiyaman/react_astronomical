@@ -34,7 +34,9 @@ export default function Navbar() {
            <Link href='https://api.nasa.gov/' isExternal>
               <MenuItem>NASA API's</MenuItem>
            </Link>
+           <RouterLink to="/about">
             <MenuItem>About</MenuItem>
+           </RouterLink>
           </MenuList>
           <FaInfo />
         </Menu>
